@@ -1,5 +1,5 @@
 import  {FILEROOT}  from "./const.js";
-import { Database } from "database.js";
+import { Database } from "./Database.js";
 export class Fetch extends Database {
     async getBlogs({limit}) {
         let blogs = await this.getall({table: 'posts', select: 'id, title, description, created_at', where: `id != ? order by created_at DESC LIMIT ${limit}`, data: [""] });
